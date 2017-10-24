@@ -1,0 +1,35 @@
+﻿<html lang="en" ng-app="mundaneApp">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="Content/bootstrap-theme.min.css" />
+    <!-- custom -->
+    <link rel="stylesheet" href="Content/main.css" />
+</head>
+<body>
+    <div ng-include="'Views/Shared/nav.html'"></div>
+    <div ng-view></div>
+    <div ng-include="'Views/Shared/footer.html'"></div>
+
+    <!-- angularjs -->
+    <script type="text/javascript" src="Scripts/angular.min.js"></script>
+    <script type="text/javascript" src="Scripts/angular-route.min.js"></script>
+    <script type="text/javascript" src="Scripts/angular-animate.min.js"></script>
+    <script type="text/javascript" src="Scripts/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="Scripts/angular-ui/ui-bootstrap.min.js"></script>
+    <script type="text/javascript" src="Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
+    <!-- app modules -->
+    <script type="text/javascript" src="app/app.js"></script>
+    <script type="text/javascript" src="app/app.route.js"></script>
+    <script type="text/javascript" src="app/app.dataservice.js"></script>
+    <script type="text/javascript" src="Views/LootGenerator/lootgenerator.controller.js"></script>
+    <script type="text/javascript" src="Views/ItemCreation/itemcreation.controller.js"></script>
+    <!-- jquery -->
+    <script type="text/javascript" src="Scripts/jquery-3.2.1.min.js"></script>
+    <!-- bootstrap -->
+    <script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
+    <!-- custom -->
+    <script type="text/javascript" src="Scripts/main.js"></script>
+</body>
+</html>

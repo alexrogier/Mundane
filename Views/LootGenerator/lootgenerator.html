@@ -1,0 +1,54 @@
+﻿<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Configuration</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-5">
+                <label>Loot Type:</label>
+                <select ng-model="lootType">
+                    <option value="generic">Generic</option>
+                    <option value="smithy">Smithy</option>
+                    <option value="alchemist">Alchemist</option>
+                </select>
+            </div>
+            <div class="col-sm-4">
+                <label><input type="checkbox" checked ng-model="bEnableMagicalItems" /> Enable Magical Items</label>
+            </div>
+            <div class="col-sm-3">
+                <label># Results <input type="number" min="1" max="99" value="10" ng-model="numResults"/></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5">
+                <button type="button" class="btn btn-primary" ng-click="generateLoot()">Generate</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default" ng-show="lootTable.length > 0">
+    <div class="panel-heading">
+        <h3 class="panel-title">Results</h3>
+    </div>
+    <div class="panel-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td><b>Name</b></td>
+                    <td><b>Worth</b></td>
+                    <td><b>Is Magical</b></td>
+                </tr>
+            </thead>
+            <tbody ng-repeat="item in lootTable track by $index">
+                <tr ng-click="item.show = !item.show">
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.worth }}</td>
+                    <td>{{ item.bismagical == "true" ? "Yes" : "No" }}</td>
+                </tr>
+                <tr ng-show="item.show" class="item-description">
+                    <td colspan="3"><i>{{ item.description ? item.description : "No description available." }}</i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

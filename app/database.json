@@ -1,0 +1,14 @@
+﻿[
+  {
+    "name": "Apple",
+    "appraisal": "10g",
+    "description": "A shiny, red apple.",
+    "bFood": "true"
+  },
+  {
+    "name": "Lockpick",
+    "appraisal": "1s",
+    "description": "N/A",
+    "bFood": "false"
+  }
+];
