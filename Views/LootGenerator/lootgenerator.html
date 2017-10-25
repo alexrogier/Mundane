@@ -30,12 +30,15 @@
         </div>
     </div>
 </div>
-<div class="panel panel-default" ng-show="lootTable.length > 0">
+<div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title">Results</h3>
     </div>
     <div class="panel-body">
-        <table class="table">
+        <div ng-hide="lootTable.length > 0">
+            <p>No results.</p>
+        </div>
+        <table class="table" ng-show="lootTable.length > 0">
             <thead>
                 <tr>
                     <td><b>Name</b></td>
@@ -47,7 +50,7 @@
                 <tr ng-click="item.show = !item.show">
                     <td>{{ item.name }}</td>
                     <td>{{ item.worth }}</td>
-                    <td>{{ item.bismagical == "true" ? "Yes" : "No" }}</td>
+                    <td>{{ item.bmagical == 1 ? "Yes" : "No" }}</td>
                 </tr>
                 <tr ng-show="item.show" class="item-description">
                     <td colspan="3"><i>{{ item.description ? item.description : "No description available." }}</i></td>

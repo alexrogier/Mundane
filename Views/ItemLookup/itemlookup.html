@@ -5,6 +5,7 @@
     </label>
 </div>
 <div class="well">
+    <div ng-hide="selected.description">No results.</div>
     <div ng-hide="!selected.description">
         <p><i>{{ selected.description }}</i></p>
         <p><b>Appraisal: {{ selected.worth }}</b></p>

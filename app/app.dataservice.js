@@ -1,11 +1,12 @@
 ﻿app.service("database", ['$http', "$log", function ($http, $log) {
     var url = "http://localhost:39446/api/mundane/";
 
-    this.generateLoot = function (numResults, bEnableMagicalItems) {
+    this.generateLoot = function (lootType, numResults, bEnableMagicalItems) {
         return $http({
             url: url + "generateloot",
             method: "GET",
             params: {
+                lootType: lootType,
                 numResults: numResults,
                 bEnableMagicalItems: bEnableMagicalItems
             }

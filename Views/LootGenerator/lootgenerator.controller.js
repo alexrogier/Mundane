@@ -12,7 +12,7 @@
     };
 
     $scope.generateLoot = function () {
-        database.generateLoot($scope.numResults.value, $scope.bEnableMagicalItems).then(function (data) {
+        database.generateLoot($scope.lootType, $scope.numResults.value, $scope.bEnableMagicalItems).then(function (data) {
             $scope.lootTable = data;
         });
     } 
