@@ -1,1 +1,1 @@
-﻿var app = angular.module('mundaneApp', ["ngRoute", "ui.bootstrap", "ngSanitize"]);
+﻿var app = angular.module('mundaneApp', ["ngRoute", "ui.bootstrap", "ngSanitize", "rzModule"]);

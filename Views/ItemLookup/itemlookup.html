@@ -1,0 +1,12 @@
+﻿<div class="row" ng-init="getAllItems()">
+    <label class="col-sm-12" style="width: 100%;">
+        Search
+        <input type="text" ng-disabled="!listenForItems()" ng-model="selected" uib-typeahead="item as item.name for item in itemTable | filter:$viewValue | limitTo:8" class="form-control" placeholder="{{ listenForItems() ? 'Item Name' : 'Loading items ...'}}">
+    </label>
+</div>
+<div class="well">
+    <div ng-hide="!selected.description">
+        <p><i>{{ selected.description }}</i></p>
+        <p><b>Appraisal: {{ selected.worth }}</b></p>
+    </div>
+</div>

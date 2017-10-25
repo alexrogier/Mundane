@@ -10,4 +10,9 @@
             templateUrl: "Views/ItemCreation/itemcreation.html",
             controller: "itemcreationController"
         })
+        .when("/itemlookup",
+        {
+            templateUrl: "Views/ItemLookup/itemlookup.html",
+            controller: "itemlookupController"
+        })
 });
