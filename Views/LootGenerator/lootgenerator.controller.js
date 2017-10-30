@@ -1,6 +1,8 @@
 ﻿app.controller("lootgeneratorController", ["$scope", "database", "$log", function ($scope, database, $log) {
     $scope.lootType = "generic";
     $scope.bEnableMagicalItems = true;
+    $scope.rarityUncommon = 35;
+    $scope.rarityRare = 15;
     $scope.lootTable = [];
 
     $scope.numResults = {
@@ -12,8 +14,24 @@
     };
 
     $scope.generateLoot = function () {
-        database.generateLoot($scope.lootType, $scope.numResults.value, $scope.bEnableMagicalItems).then(function (data) {
+        database.generateLoot(
+            $scope.lootType,
+            $scope.numResults.value,
+            $scope.bEnableMagicalItems,
+            $scope.rarityUncommon,
+            $scope.rarityRare
+        ).then(function (data) {
             $scope.lootTable = data;
         });
-    } 
+    };
+
+    $scope.decipherRarity = function (rarity) {
+        var strRarity = "Unknown";
+        switch (rarity) {
+            case 0: strRarity = "Common"; break;
+            case 1: strRarity = "Uncommon"; break;
+            case 2: strRarity = "Rare"; break;
+        }
+        return strRarity;
+    };
 }]);

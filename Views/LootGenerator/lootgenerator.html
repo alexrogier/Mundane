@@ -53,7 +53,10 @@
                     <td>{{ item.bmagical == 1 ? "Yes" : "No" }}</td>
                 </tr>
                 <tr ng-show="item.show" class="item-description">
-                    <td colspan="3"><i>{{ item.description ? item.description : "No description available." }}</i></td>
+                    <td colspan="3">
+                        <p>Rarity: {{ decipherRarity(item.rarity) }}</p>
+                        <p><i>{{ item.description ? item.description : "No description available." }}</i></p>
+                    </td>
                 </tr>
             </tbody>
         </table>
