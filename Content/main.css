@@ -1,3 +1,7 @@
 ﻿.item-description {
     background-color: lightgrey;
 }
+
+.navbar-nav {
+    margin: 0;
+}

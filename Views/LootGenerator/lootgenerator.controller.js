@@ -25,10 +25,6 @@
         });
     };
 
-    $scope.testTreasureRoll = function(){
-        return currency.treasureRoll(18, 60);
-    }
-
     $scope.decipherRarity = function (rarity) {
         var strRarity = "Unknown";
         switch (rarity) {
