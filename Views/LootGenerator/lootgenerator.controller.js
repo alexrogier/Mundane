@@ -1,7 +1,7 @@
-﻿app.controller("lootgeneratorController", ["$scope", "database", "$log", function ($scope, database, $log) {
+﻿app.controller("lootgeneratorController", ["$scope", "database", "$log", "currency", function ($scope, database, $log, currency) {
     $scope.lootType = "generic";
     $scope.bEnableMagicalItems = true;
-    $scope.rarityUncommon = 35;
+    $scope.rarityUncommon = 25;
     $scope.rarityRare = 15;
     $scope.lootTable = [];
 
@@ -24,6 +24,10 @@
             $scope.lootTable = data;
         });
     };
+
+    $scope.testTreasureRoll = function(){
+        return currency.treasureRoll(18, 60);
+    }
 
     $scope.decipherRarity = function (rarity) {
         var strRarity = "Unknown";

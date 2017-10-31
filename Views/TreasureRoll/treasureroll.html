@@ -1,0 +1,25 @@
+﻿<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Treasure Roll</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-12">
+                <label>d20 Roll <input type="number" ng-model="d20Roll" /></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <label>d100 Roll <input type="number" ng-model="d100Roll" /></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <button ng-click="calculateTreasureRoll()">Roll!</button>
+            </div>
+        </div>
+    </div>
+    <div class="well" ng-hide="!rollResult">
+        {{ rollResult }}
+    </div>
+</div>

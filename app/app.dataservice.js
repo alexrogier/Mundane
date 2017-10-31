@@ -19,7 +19,7 @@
 
     this.getAllItems = function () {
         return $http({
-            url: url + "/getallitems",
+            url: url + "getallitems",
             method: "GET"
         }).then(function (response) {
             return response.data;

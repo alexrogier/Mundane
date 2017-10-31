@@ -1,5 +1,6 @@
 ﻿app.controller("itemlookupController", ["$scope", "database", "$log", function ($scope, database, $log) {
     $scope.itemTable = [];
+    $scope.selected;
 
     $scope.getAllItems = function () {
         database.getAllItems().then(function (items) {
