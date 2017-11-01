@@ -4,24 +4,20 @@
     </div>
     <div class="panel-body">
         <div class="row">
-            <div class="col-sm-5">
-                <label>Loot Type:</label>
-                <select ng-model="lootType">
-                    <option value="generic">Generic</option>
-                    <option value="smithy">Smithy</option>
-                    <option value="alchemist">Alchemist</option>
-                    <option value="stockmerchant">Stock Merchant</option>
-                </select>
-            </div>
-            <div class="col-sm-4">
-                <label><input type="checkbox" checked ng-model="bEnableMagicalItems" /> Enable Magical Items</label>
-            </div>
-            <div class="col-sm-3">
-                <div>
-                    <label># Results</label>
-                    <rzslider rz-slider-model="numResults.value" rz-slider-options="numResults.options"></rzslider>
-                </div>
-            </div>
+            <label>Loot Type:</label>
+            <select ng-model="lootType">
+                <option value="generic">Generic</option>
+                <option value="smithy">Smithy</option>
+                <option value="alchemist">Alchemist</option>
+                <option value="stockmerchant">Stock Merchant</option>
+            </select>
+        </div>
+        <div class="row">
+            <label><input type="checkbox" checked ng-model="bEnableMagicalItems" /> Enable Magical Items</label>
+        </div>
+        <div class="row">
+            <label># Results</label>
+            <rzslider rz-slider-model="numResults.value" rz-slider-options="numResults.options"></rzslider>
         </div>
         <br/>
         <div class="row">
@@ -42,9 +38,9 @@
         <table class="table" ng-show="lootTable.length > 0">
             <thead>
                 <tr>
-                    <td><b>Name</b></td>
-                    <td><b>Worth</b></td>
-                    <td><b>Is Magical</b></td>
+                    <td class="col-sm-6"><b>Name</b></td>
+                    <td class="col-sm-3"><b>Worth</b></td>
+                    <td class="col-sm-3"><b>Magical</b></td>
                 </tr>
             </thead>
             <tbody ng-repeat="item in lootTable track by $index">

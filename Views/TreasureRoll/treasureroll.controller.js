@@ -15,11 +15,6 @@
         if ($scope.d100Roll > 100) $scope.d100Roll = 100;
     });
 
-    $scope.modifyRoll = function(type, modifier){
-        if (type == "d20") $scope.d20Roll += modifier;
-        if (type == "d100") $scope.d100Roll += modifier;
-    }
-
     $scope.calculateTreasureRoll = function () {
         $scope.rollResult = currency.treasureRoll($scope.d20Roll, $scope.d100Roll);
     };

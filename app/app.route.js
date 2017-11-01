@@ -15,4 +15,9 @@
             templateUrl: "Views/TreasureRoll/treasureroll.html",
             controller: "treasureRollController"
         })
+        .when("/wildmagicsurge",
+        {
+            templateUrl: "Views/WildMagicSurge/wildmagicsurge.html",
+            controller: "wildmagicsurgeController"
+        })
 });

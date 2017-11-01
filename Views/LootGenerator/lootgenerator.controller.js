@@ -24,14 +24,8 @@
             $scope.lootTable = data;
         });
     };
-
+    
     $scope.decipherRarity = function (rarity) {
-        var strRarity = "Unknown";
-        switch (rarity) {
-            case 0: strRarity = "Common"; break;
-            case 1: strRarity = "Uncommon"; break;
-            case 2: strRarity = "Rare"; break;
-        }
-        return strRarity;
+        return database.decipherRarity(rarity);
     };
 }]);

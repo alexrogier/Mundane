@@ -8,6 +8,7 @@
     <div ng-hide="selected.name">No results.</div>
     <div ng-hide="!selected.name">
         <p><i>{{ selected.description ? selected.description : "No description available." }}</i></p>
-        <p><b>Appraisal: {{ selected.worth }}</b></p>
+        <p><b>Appraisal:</b> {{ selected.worth }}</p>
+        <p><b>Rarity: </b> {{ decipherRarity(selected.rarity) }}</p>
     </div>
 </div>

@@ -27,4 +27,8 @@
         }
         return msg;
     };
+
+    $scope.decipherRarity = function (rarity) {
+        return database.decipherRarity(rarity);
+    };
 }]);

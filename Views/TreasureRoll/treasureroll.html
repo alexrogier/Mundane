@@ -6,17 +6,17 @@
         <div class="row">
             <div class="col-sm-12">
                 <label>d20 Roll</label>
-                <button ng-mousedown="modifyRoll('d20', -1)"><</button>
+                <button ng-mousedown="d20Roll = d20Roll - 1"><</button>
                 <input type="number" ng-model="d20Roll" />
-                <button ng-mousedown="modifyRoll('d20', 1)">></button>
+                <button ng-mousedown="d20Roll = d20Roll + 1">></button>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-12">
                 <label>d100 Roll</label>
-                <button ng-mousedown="modifyRoll('d100', -1)"><</button>
+                <button ng-mousedown="d100Roll = d100Roll - 1"><</button>
                 <input type="number" ng-model="d100Roll" />
-                <button ng-mousedown="modifyRoll('d100', -1)">></button>
+                <button ng-mousedown="d100Roll = d100Roll + 1">></button>
             </div>
         </div>
         <div class="row">

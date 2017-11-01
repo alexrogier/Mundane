@@ -25,4 +25,14 @@
             return response.data;
         });
     }
+
+    this.decipherRarity = function (rarity) {
+        var strRarity = "Unknown";
+        switch (rarity) {
+            case 0: strRarity = "Common"; break;
+            case 1: strRarity = "Uncommon"; break;
+            case 2: strRarity = "Rare"; break;
+        }
+        return strRarity;
+    };
 }]);

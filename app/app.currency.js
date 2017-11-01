@@ -18,7 +18,6 @@
         var lootTable = (d20 < 18 ? treasureTableA : treasureTableB);
         var tableRow = getTableRow(d100, lootTable);
 
-        // abstract result roll from tableRow.roll
         var diceAmt = tableRow.roll.slice(0, 1),
             diceType,
             diceMultiplier;
@@ -43,7 +42,7 @@
     function rollDice(diceAmt, diceType, diceMultiplier) {
         var rollResult = 0;
         for (var i = 0; i < diceAmt; i++) {
-            rollResult += Math.floor(Math.random() * (diceType) + 1);
+            rollResult += Math.floor(Math.random() * diceType + 1);
         }
         rollResult *= diceMultiplier;
         return rollResult;
