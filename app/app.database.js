@@ -1,5 +1,5 @@
 ﻿app.service("database", ['$http', "$log", function ($http, $log) {
-    var url = "http://localhost:39446/api/mundane/";
+    var url = "api/mundane/";
 
     this.generateLoot = function (lootType, numResults, bEnableMagicalItems, rarityUncommon, rarityRare) {
         return $http({
