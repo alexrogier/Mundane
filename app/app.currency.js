@@ -31,6 +31,25 @@
         return rollDice(diceAmt, diceType, diceMultiplier) + " " + tableRow.coin;
     };
 
+    this.getTable = function(type) {
+        switch (type) {
+            case "A": return treasureTableA; break;
+            case "B": return treasureTableB; break;
+        }
+        return null;
+    }
+
+    this.getTableType = function(d20) {
+        if (d20 < 18) return "A";
+        return "B";
+    }
+
+    this.getRoll = function (d20, d100) {
+        var lootTable = (d20 < 18 ? treasureTableA : treasureTableB);
+        var tableRow = getTableRow(d100, lootTable);
+        return tableRow.roll + " " + tableRow.coin;
+    }
+
     function getTableRow(d100, table) {
         var tableRow;
         for (var i = 0; i < table.length; i++) {

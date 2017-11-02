@@ -5,9 +5,12 @@
     <div class="panel-body">
         <div class="row">
             <label><b>d100 Roll</b></label>
-            <button ng-mousedown="d100Roll = d100Roll - 1"><</button>
-            <input type="number" ng-model="d100Roll" />
-            <button ng-mousedown="d100Roll = d100Roll + 1">></button>
+        </div>
+        <div class="row" style="text-align: center;">
+            <button class="btn btn-default" ng-mousedown="modifyd100(-1)"><</button>
+            <input disabled id="wms_d100" type="number" ng-model="d100.value" />
+            <button class="btn btn-default" ng-mousedown="modifyd100(1)">></button>
+            <rzslider rz-slider-model="d100.value" rz-slider-options="d100.options"></rzslider>
         </div>
         <div class="row">
             <button ng-click="getWildMagic()">Submit</button>
@@ -17,3 +20,17 @@
 <div class="well" ng-hide="!rollResult">
     {{ rollResult }}
 </div>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td><b>d100</b></td>
+            <td><b>Result</b></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="row in wildMagic track by $index">
+            <td style="text-align: center;">{{ $index + 1 }}</td>
+            <td>{{ row }}</td>
+        </tr>
+    </tbody>
+</table>

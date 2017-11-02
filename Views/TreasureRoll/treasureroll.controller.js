@@ -1,21 +1,45 @@
 ﻿app.controller("treasurerollController", ["$scope", "$log", "currency", function ($scope, $log, currency) {
-    $scope.d20Roll = 15;
-    $scope.d100Roll = 50;
     $scope.rollResult;
 
-    $scope.$watch("d20Roll", function () {
-        if (!$scope.d20Roll) return;
-        if ($scope.d20Roll < 1) $scope.d20Roll = 1;
-        if ($scope.d20Roll > 20) $scope.d20Roll = 20;
-    });
-
-    $scope.$watch("d100Roll", function () {
-        if (!$scope.d100Roll) return;
-        if ($scope.d100Roll < 1) $scope.d100Roll = 1;
-        if ($scope.d100Roll > 100) $scope.d100Roll = 100;
-    });
-
     $scope.calculateTreasureRoll = function () {
-        $scope.rollResult = currency.treasureRoll($scope.d20Roll, $scope.d100Roll);
+        $scope.rollResult = currency.treasureRoll($scope.d20.value, $scope.d100.value);
+    };
+
+    $scope.d20 = {
+        value: 15,
+        options: {
+            floor: 1,
+            ceil: 20,
+            translate: function (value, sliderId, label) {
+                switch (label) {
+                    case 'model':
+                        return value + " (Table " + currency.getTableType(value) + ")";
+                    default:
+                        return value;
+                }
+            }
+        },
+    };
+    $scope.d100 = {
+        value: 1,
+        options: {
+            floor: 1,
+            ceil: 100,
+            translate: function (value, sliderId, label) {
+                switch (label) {
+                    case 'model':
+                        return value + " (Roll " + currency.getRoll($scope.d20.value, $scope.d100.value) + ")";
+                    default:
+                        return value;
+                }
+            }
+        }
+    };
+
+    $scope.rewardTableA = function () {
+        return currency.getTable("A");
+    };
+    $scope.rewardTableB = function () {
+        return currency.getTable("B");
     };
 }]);

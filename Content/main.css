@@ -5,3 +5,12 @@
 .navbar-nav {
     margin: 0;
 }
+
+#wms_d100 {
+    border: none;
+    text-align: center;
+    font-size: 20px;
+    width: 100%;
+    max-width: 50px;
+    background: none;
+}
