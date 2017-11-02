@@ -13,7 +13,7 @@
         .when("/treasureroll",
         {
             templateUrl: "Views/TreasureRoll/treasureroll.html",
-            controller: "treasureRollController"
+            controller: "treasurerollController"
         })
         .when("/wildmagicsurge",
         {

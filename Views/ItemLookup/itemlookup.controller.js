@@ -31,4 +31,8 @@
     $scope.decipherRarity = function (rarity) {
         return database.decipherRarity(rarity);
     };
+
+    $scope.init = function () {
+        $("#draggable").draggable();
+    };
 }]);
