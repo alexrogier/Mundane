@@ -1,4 +1,4 @@
-﻿app.service("currency", ["$log", function ($log) {
+﻿app.service("currency", ["$log", "dice", function ($log, dice) {
     var treasureTableA = [
         { min: 1, max: 30, roll: "5d6", coin: "CP" },
         { min: 31, max: 60, roll: "4d6", coin: "SP" },
@@ -28,20 +28,21 @@
             diceMultiplier = 1;
         }
 
-        return rollDice(diceAmt, diceType, diceMultiplier) + " " + tableRow.coin;
+        return dice.rollDice(diceAmt, diceType, diceMultiplier) + " " + tableRow.coin;
     };
 
     this.getTable = function(type) {
         switch (type) {
-            case "A": return treasureTableA; break;
-            case "B": return treasureTableB; break;
+            case "A": return treasureTableA; 
+            case "B": return treasureTableB;
         }
         return null;
     }
 
     this.getTableType = function(d20) {
         if (d20 < 18) return "A";
-        return "B";
+        if (d20 >= 18) return "B";
+        return null;
     }
 
     this.getRoll = function (d20, d100) {
@@ -56,14 +57,5 @@
             if (d100 >= table[i].min && d100 <= table[i].max) tableRow = table[i];
         }
         return tableRow;
-    }
-
-    function rollDice(diceAmt, diceType, diceMultiplier) {
-        var rollResult = 0;
-        for (var i = 0; i < diceAmt; i++) {
-            rollResult += Math.floor(Math.random() * diceType + 1);
-        }
-        rollResult *= diceMultiplier;
-        return rollResult;
     }
 }]);

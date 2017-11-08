@@ -1,4 +1,4 @@
-﻿app.controller("lootgeneratorController", ["$scope", "database", "$log", "currency", function ($scope, database, $log, currency) {
+﻿app.controller("lootgeneratorController", ["$scope", "database", "$log", function ($scope, database, $log) {
     $scope.lootType = "generic";
     $scope.bEnableMagicalItems = true;
     $scope.rarityCommon = 60

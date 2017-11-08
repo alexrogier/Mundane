@@ -1,4 +1,4 @@
-﻿app.controller("treasurerollController", ["$scope", "$log", "currency", function ($scope, $log, currency) {
+﻿app.controller("treasurerollController", ["$scope", "$log", "currency", "dice", function ($scope, $log, currency, dice) {
     $scope.rollResult;
 
     $scope.calculateTreasureRoll = function () {

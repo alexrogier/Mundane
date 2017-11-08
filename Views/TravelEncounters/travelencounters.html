@@ -1,0 +1,32 @@
+﻿<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Travel Encounters</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-12">
+                <button class="btn btn-primary" ng-click="getEncounter()">Roll</button>
+            </div>
+        </div>
+    </div>
+    <div class="well" ng-hide="!rollResult">
+        {{ rollResult }}
+    </div>
+</div>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td colspan="3"><b>Encounters</b></td>
+        </tr>
+        <tr>
+            <td style="width: 25%; text-align: center;"><i>d20 Roll</i></td>
+            <td><i>Encounter</i></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="row in encounterTable track by $index">
+            <td style="text-align: center;">{{ $index + 1 }}</td>
+            <td>{{ row }}</td>
+        </tr>
+    </tbody>
+</table>

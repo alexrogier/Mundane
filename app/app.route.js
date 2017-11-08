@@ -20,4 +20,9 @@
             templateUrl: "Views/WildMagicSurge/wildmagicsurge.html",
             controller: "wildmagicsurgeController"
         })
+        .when("/travelencounters",
+        {
+            templateUrl: "Views/TravelEncounters/travelencounters.html",
+            controller: "travelencountersController"
+        })
 });
