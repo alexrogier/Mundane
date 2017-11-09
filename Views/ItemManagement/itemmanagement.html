@@ -1,0 +1,97 @@
+﻿<div class="row" ng-init="getAllItems()">
+    <label class="col-sm-12" style="width: 100%;">
+        Search Items
+        <input type="text" ng-disabled="!itemTable.length > 0" ng-model="selected" uib-typeahead="item as item.name for item in itemTable | filter:$viewValue | limitTo:8" class="form-control" placeholder="{{ listenForItems() }}">
+    </label>
+</div>
+<div class="well">
+    <div ng-hide="selected.name">No results.</div>
+    <div ng-hide="!selected.name">
+        <p><i>{{ selected.description ? selected.description : "No description available." }}</i></p>
+        <p><b>Appraisal:</b> {{ selected.worth }}</p>
+        <p><b>Rarity: </b> {{ decipherRarity(selected.rarity) }}</p>
+    </div>
+</div>
+<hr/>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title" data-toggle="collapse" href="#newitempanel">{{ bEdittingItem ? "Edit Item" : "Create New Item" }}</h3>
+    </div>
+    <div id="newitempanel" class="panel-body collapse container">
+        <form class="ng-pristine ng-invalid ng-invalid-required" name="itemForm">
+            <div class="form-group">
+                <label for="newitem_name">Name</label> 
+                <input id="newitem_name" class="form-control" ng-model="newItem.name" placeholder="Item Name" required />
+            </div>
+            <div class="form-group"">
+                <label for="newitem_worth">Worth</label> 
+                <input id="newitem_worth" class="form-control" ng-model="newItem.worth" placeholder="Item Worth" required />
+            </div>
+            <div class="form-group"">
+                <label for="newitem_rarity">Item Rarity</label>
+                <select id="newitem_rarity" class="form-control" ng-model="newItem.rarity" ng-init="newItem.rarity = '0'">
+                    <option value="0">Common</option>
+                    <option value="1">Uncommon</option>
+                    <option value="2">Rare</option>
+                </select>
+            </div>
+            <div class="form-group"">
+                <label for="newitem_description">Description</label> 
+                <textarea id="newitem_description" class="form-control" ng-model="newItem.description" placeholder="Item Description"></textarea>
+            </div>
+            <div class="form-group"">
+                <div class="well">
+                    <div id="itemmanagement_itemtypes">
+                        <p><i>Check any item types that apply.</i></p>
+                        <label><input ng-model="newItem.bmagical" type="checkbox" /> Magical</label>
+                        <label><input ng-model="newItem.bequipment" type="checkbox" /> Equipment</label>
+                        <label><input ng-model="newItem.bfood" type="checkbox" /> Food</label>
+                        <label><input ng-model="newItem.bpotion" type="checkbox" /> Potion</label>
+                        <label><input ng-model="newItem.btool" type="checkbox" /> Tool</label>
+                        <label><input ng-model="newItem.btradegood" type="checkbox" /> Trade Good</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group"">
+                <button class="btn btn-secondary" ng-show="bEdittingItem" ng-click="exitEditMode()">Cancel</button>
+                <button class="btn btn-primary" ng-disabled="itemForm.$invalid" ng-click="submitItem()">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+<hr/>
+<table class="table">
+    <thead>
+        <tr>
+            <td colspan="3"><b>All Items</b></td>
+        </tr>
+        <tr>
+            <td class="col-sm-6"><b>Name</b></td>
+            <td class="col-sm-3"><b>Worth</b></td>
+            <td class="col-sm-3"><b>Magical</b></td>
+        </tr>
+    </thead>
+    <tbody ng-repeat="item in itemTable | orderBy:'name'">
+        <tr ng-click="item.show = !item.show">
+            <td>{{ item.name }}</td>
+            <td>{{ item.worth }}</td>
+            <td>{{ item.bmagical == 1 ? "Yes" : "No" }}</td>
+        </tr>
+        <tr ng-show="item.show" class="item-description">
+            <td colspan="3">
+                <p>Rarity: {{ decipherRarity(item.rarity) }}</p>
+                <p><i>{{ item.description ? item.description : "No description available." }}</i></p>
+                <div class="well">  
+                    <p><i>Item Types</i></p>
+                    <p>Equipment: {{ item.bequipment }}</p>
+                    <p>Food: {{ item.bfood }}</p>
+                    <p>Potion: {{ item.bpotion }}</p>
+                    <p>Tool: {{ item.btool }}</p>
+                    <p>Tradegood: {{ item.btradegood }}</p>
+                </div>
+                <button class="btn btn-primary" ng-click="enterEditMode(item)" data-toggle="collapse" href="#newitempanel">Edit Item</button>
+                <button class="btn btn-danger" ng-click="deleteItem(item.itemid)">Delete Item</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

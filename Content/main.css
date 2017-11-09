@@ -14,3 +14,7 @@
     max-width: 50px;
     background: none;
 }
+
+#itemmanagement_itemtypes label {
+    display: block;
+}

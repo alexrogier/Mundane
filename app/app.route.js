@@ -5,11 +5,6 @@
             templateUrl: "Views/LootGenerator/lootgenerator.html",
             controller: "lootgeneratorController"
         })
-        .when("/itemlookup",
-        {
-            templateUrl: "Views/ItemLookup/itemlookup.html",
-            controller: "itemlookupController"
-        })
         .when("/treasureroll",
         {
             templateUrl: "Views/TreasureRoll/treasureroll.html",
@@ -24,5 +19,10 @@
         {
             templateUrl: "Views/TravelEncounters/travelencounters.html",
             controller: "travelencountersController"
+        })
+        .when("/itemmanagement",
+        {
+            templateUrl: "Views/ItemManagement/itemmanagement.html",
+            controller: "itemmanagementController"
         })
 });
